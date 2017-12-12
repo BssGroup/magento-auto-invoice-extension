@@ -1,0 +1,1 @@
+# magento-auto-invoice-extension
