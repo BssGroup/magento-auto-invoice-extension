@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+    <name>auto-invoice-free-extension</name>
+    <version>1.0.9</version>
+    <stability>stable</stability>
+    <license uri="https://opensource.org/licenses/OSL-3.0">Open Software License (OSL)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Auto Invoice Extension was designed to automatically change order status by sending invoice email to customers.</summary>
+    <description>Auto Invoice Extension features a convenient Magento payment process which was designed to change order status automatically after generating invoice.&#xD;
+&#xD;
+- Enable automatic invoice and shipment generation based on payment methods.&#xD;
+- Automatically create and change order status.&#xD;
+- Send invoice e-mail to customer.</description>
+    <notes>- fix bugs with paypal and credit card payment method</notes>
+    <authors><author><name>Bss Commerce</name><user>Nguyen</user><email>support@bsscommerce.com</email></author></authors>
+    <date>2016-03-28</date>
+    <time>08:17:02</time>
+    <contents><target name="magecommunity"><dir name="Bss"><dir name="Autoinvoice"><dir name="Helper"><file name="Data.php" hash="69b4eaeb4e1eda64f89acde46b731b82"/></dir><dir name="Model"><file name="Observer.php" hash="d7ee3089bfa9a9efc09ee082d9496434"/><dir name="Order"><file name="Payment.php" hash="514bd7e4143a08f3331178fa457f86ae"/></dir></dir><dir name="etc"><file name="config.xml" hash="c03ec04a8948268e1c54a6df9b7b02fc"/><file name="system.xml" hash="019d677c196419846d7b3b95d0e6c5d4"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Bss_Autoinvoice.xml" hash="fea148ebae4c57b86273790f57423702"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>4.0.0</min><max>7.0.3</max></php></required></dependencies>
+</package>

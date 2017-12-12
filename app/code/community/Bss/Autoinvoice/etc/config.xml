@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!--
+/**
+* BssCommerce Co.
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the EULA
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://bsscommerce.com/Bss-Commerce-License.txt
+*
+* =================================================================
+*                 MAGENTO EDITION USAGE NOTICE
+* =================================================================
+* This package designed for Magento COMMUNITY edition
+* BssCommerce does not guarantee correct work of this extension
+* on any other Magento edition except Magento COMMUNITY edition.
+* BssCommerce does not provide extension support in case of
+* incorrect edition usage.
+* =================================================================
+*
+* @category   BSS
+* @package    Bss_Autoinvoice
+* @author     Trung <kiutisuperking@gmail.com>
+* @copyright  Copyright (c) 2014-2016 BssCommerce Co. (http://bsscommerce.com)
+* @license    http://bsscommerce.com/Bss-Commerce-License.txt
+*/
+-->
+<config>
+    <modules>
+        <Bss_Autoinvoice>
+            <version>1.0.9</version>
+        </Bss_Autoinvoice>
+    </modules>
+    <global>
+        <models>
+            <bss_autoinvoice>
+                <class>Bss_Autoinvoice_Model</class>
+            </bss_autoinvoice>
+            <sales>
+            	<rewrite>
+            		<order_payment>Bss_Autoinvoice_Model_Order_Payment</order_payment>
+            	</rewrite>
+            </sales>
+        </models>
+		<helpers>
+      			<autoinvoice>
+      				<class>Bss_Autoinvoice_Helper</class>
+      			</autoinvoice>
+      	</helpers>
+        <events>
+            <sales_order_save_after>
+                <observers>
+                    <bss_autoinvoice>
+                        <class>bss_autoinvoice/observer</class>
+                        <method>autoInvoice</method>
+                    </bss_autoinvoice>
+                </observers>
+            </sales_order_save_after>
+			<sales_order_invoice_save_after>			  
+				<observers>				
+					<bss_autoinvoice>				  
+						<type>singleton</type>				  
+						<class>bss_autoinvoice/observer</class>				  
+						<method>automaticallyInvoiceShipCompleteOrder</method>				
+					</bss_autoinvoice>			   
+				</observers>			 
+			</sales_order_invoice_save_after>
+        </events>
+    </global>
+	<adminhtml>
+			<acl>
+			<resources>
+	    		<admin translate="title" module="adminhtml">
+		             <children>
+						<autoinvoice>
+                        	<title>Bss Auto Invoice</title>                        	                
+                        </autoinvoice>
+                        <system>
+	                        <children>
+	                            <config>
+	                                <children>
+	                                    <autoinvoice translate="title">
+	                                        <title>Bss_Autoinvoice</title>
+	                                        <sort_order>200</sort_order>
+	                                    </autoinvoice>
+	                                </children>
+	                            </config>
+	                        </children>
+	                    </system>
+					 </children>
+				</admin>	
+			</resources>	
+		</acl>
+	</adminhtml>	
+</config>

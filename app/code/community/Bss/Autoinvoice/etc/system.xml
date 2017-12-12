@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!--
+/**
+* BssCommerce Co.
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the EULA
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://bsscommerce.com/Bss-Commerce-License.txt
+*
+* =================================================================
+*                 MAGENTO EDITION USAGE NOTICE
+* =================================================================
+* This package designed for Magento COMMUNITY edition
+* BssCommerce does not guarantee correct work of this extension
+* on any other Magento edition except Magento COMMUNITY edition.
+* BssCommerce does not provide extension support in case of
+* incorrect edition usage.
+* =================================================================
+*
+* @category   BSS
+* @package    Bss_Autoinvoice
+* @author     Trung <kiutisuperking@gmail.com>
+* @copyright  Copyright (c) 2014-2016 BssCommerce Co. (http://bsscommerce.com)
+* @license    http://bsscommerce.com/Bss-Commerce-License.txt
+*/
+-->
+<config>
+    <tabs>
+        <bss translate="label" module="autoinvoice">
+            <label>BSS COMMERCE</label>
+            <sort_order>200</sort_order>
+        </bss>
+    </tabs>
+    <sections>
+        <autoinvoice translate="label" module="autoinvoice">
+            <label>Bss Autoinvoice</label>
+            <tab>bss</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>200</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <settings translate="label">
+                    <label>Bss Auto Invoice</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                    	<active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+						<payment_methods translate="label">
+                            <label>Select Payment Methods</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>adminhtml/system_config_source_payment_allmethods</source_model>
+							<comment>Select payment methods for which invoice and shipment autogeneration will work</comment>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </payment_methods>
+                    	<invoice translate="label">
+                            <label>Enable automatic invoice generation</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </invoice>
+						<shipment translate="label">
+                            <label>Enable automatic shipment generation</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<depends><invoice>1</invoice></depends>
+                        </shipment>
+                    </fields>
+                </settings>
+            </groups>            
+        </autoinvoice>
+    </sections>
+</config>
